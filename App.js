@@ -5,9 +5,24 @@ import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+//Redux
+import { applyMiddleware, createStore } from 'redux';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import reducers from './reducers';
+import rootSaga from './sagas';
+
 import AppNavigator from './navigation/AppNavigator';
+import { ThemeProvider } from 'react-native-elements';
 
 export default function App(props) {
+
+  const sagaMiddleware = createSagaMiddleware();
+
+  this.store = createStore(reducers, {}, applyMiddleware(sagaMiddleware))
+
+  sagaMiddleware.run(rootSaga);
+
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
@@ -20,10 +35,14 @@ export default function App(props) {
     );
   } else {
     return (
-      <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
-      </View>
+      <ThemeProvider>
+        <Provider store={this.store}>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+            <AppNavigator />
+          </View>
+        </Provider>
+      </ThemeProvider>
     );
   }
 }
