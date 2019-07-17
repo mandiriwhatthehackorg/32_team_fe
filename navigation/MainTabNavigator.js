@@ -43,7 +43,7 @@ const LinksStack = createStackNavigator(
 
 LinksStack.navigationOptions = {
   tabBarOptions: { showLabel: false },
-  tabBarLabel: 'Links',
+  tabBarLabel: 'Chat History',
   showLabel: false,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={

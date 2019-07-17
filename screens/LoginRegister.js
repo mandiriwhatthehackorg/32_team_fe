@@ -2,8 +2,9 @@ import * as React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import Button from "../components/Button";
 import FormTextInput from "../components/FormTextInput";
-import imageLogo from "../assets/images/robot-dev.png";
+import imageLogo from "../assets/images/robot.gif";
 import colors from "../constants/Colors";
+import ChatRoom from '../components/ChatRoom';
 
 class LoginRegister extends React.Component {
     constructor(props){
@@ -30,7 +31,7 @@ class LoginRegister extends React.Component {
       <View style={styles.container}>
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
-          <FormTextInput
+          {/* <FormTextInput
             value={this.state.email}
             onChangeText={this.handleEmailChange}
             placeholder={"Email"}
@@ -42,7 +43,8 @@ class LoginRegister extends React.Component {
           />
           <Button label={"Login"} onPress={()=>{
               this.handleLoginPress()
-          }} />
+          }} /> */}
+          <ChatRoom navigation={this.props.navigation} />
         </View>
       </View>
     );
@@ -65,7 +67,7 @@ const styles = StyleSheet.create({
   form: {
     flex: 1,
     justifyContent: "center",
-    width: "80%"
+    width: "100%"
   }
 });
 

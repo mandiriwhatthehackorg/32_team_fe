@@ -12,8 +12,28 @@ class _ChatRoom extends Component {
         this.state = {
             messages: [
                 {
+                    _id: 3,
+                    text: 'Nah sekarang password ya',
+                    createdAt: new Date(),
+                    user: {
+                        _id: 2,
+                        name: 'React Native',
+                        avatar: 'https://placeimg.com/140/140/any',
+                    },
+                },
+                {
+                    _id: 2,
+                    text: 'Minta username nya dulu dong',
+                    createdAt: new Date(),
+                    user: {
+                        _id: 2,
+                        name: 'React Native',
+                        avatar: 'https://placeimg.com/140/140/any',
+                    },
+                },
+                {
                     _id: 1,
-                    text: 'Hello developer',
+                    text: 'Hello developer, Silahkan Login terlebih dahulu ya',
                     createdAt: new Date(),
                     user: {
                         _id: 2,
@@ -26,9 +46,13 @@ class _ChatRoom extends Component {
     }
 
     onSend(messages = []) {
-        this.setState(previousState => ({
-            messages: GiftedChat.append(previousState.messages, messages),
-        }))
+        if(messages[0].text == "Login"){
+            this.props.navigation.navigate('Main')
+        }else{
+            this.setState(previousState => ({
+                messages: GiftedChat.append(previousState.messages, messages),
+            }))
+        }
     }
 
     componentWillMount() {
@@ -48,7 +72,7 @@ class _ChatRoom extends Component {
     }
 
     render() {
-        console.log(this.props.rate)
+        
         return (
             <View style={styles.container}>
                 {

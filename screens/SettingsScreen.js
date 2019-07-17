@@ -1,14 +1,33 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import ActionButton from '../components/ActionButton';
+import Settings from '../components/Settings/Settings';
 
-export default function SettingsScreen() {
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
-  return <ExpoConfigView />;
+export default class SettingsScreen extends React.Component {
+  render(){
+    return (
+      <View style={styles.container}>
+        <ScrollView style={styles.container}>
+          <Settings />
+        </ScrollView>
+        <ActionButton navigation={this.props.navigation}/>
+      </View>
+    )
+  }
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'app.json',
+  title: 'Profile'
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    height: "100%",
+    backgroundColor: '#fff',
+  },
+  contentContainer: {
+    paddingTop: 30,
+    height: '100%'
+  },
+});
