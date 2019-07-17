@@ -26,9 +26,7 @@ HomeStack.navigationOptions = {
     <TabBarIcon
       focused={focused}
       name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+        `home`
       }
     />
   ),
@@ -48,7 +46,9 @@ LinksStack.navigationOptions = {
   tabBarLabel: 'Links',
   showLabel: false,
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+    <TabBarIcon focused={focused} name={
+      `comments${focused ? '' : '-o'}`
+    } />
   ),
 };
 
@@ -65,7 +65,9 @@ SettingsStack.navigationOptions = {
   tabBarOptions: { showLabel: false },
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+    <TabBarIcon focused={focused} name={
+      `user-circle${focused ? '' : '-o'}`
+    } />
   ),
 };
 
