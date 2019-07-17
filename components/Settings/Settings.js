@@ -32,7 +32,7 @@ export default class Settings extends React.Component {
                   source={require('../../assets/images/icon.png')}
                   resizeMode="contain"
                   fadeDuration={0}
-                  style={{ width: 20, height: 20, marginTop: 1 }}
+                  style={{ width: 30, height: 30, marginTop: 1 }}
                 />
               </View>
               <View style={styles.optionTextContainer}>
@@ -40,17 +40,17 @@ export default class Settings extends React.Component {
               </View>
             </View>
           </Touchable>
-
+ 
           <Touchable
             style={styles.option}
             background={Touchable.Ripple('#ccc', false)}
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
+                <Ionicons name="ios-barcode" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Account & Password</Text>
+                <Text style={styles.optionText}>Change Password</Text>
               </View>
             </View>
           </Touchable>
@@ -61,14 +61,11 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
+                <Ionicons name="ios-volume-high" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
                 <Text style={styles.optionText}>Sounds</Text>
               </View>
-              <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
-              </View>
             </View>
           </Touchable>
 
@@ -78,7 +75,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
+                <Ionicons name="ios-color-palette" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
                 <Text style={styles.optionText}>Themes</Text>
@@ -92,7 +89,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
+                <Ionicons name="ios-notifications" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
                 <Text style={styles.optionText}>Notification</Text>
@@ -106,7 +103,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
+                <Ionicons name="ios-finger-print" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
                 <Text style={styles.optionText}>PIN & Fingerprint</Text>
@@ -120,7 +117,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
-                <Ionicons name="ios-chatboxes" size={22} color="#ccc" />
+                <Ionicons name="md-log-out" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
                 <Text style={styles.optionText}>Log Out</Text>
