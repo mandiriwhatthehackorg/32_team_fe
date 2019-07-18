@@ -59,9 +59,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   logo: {
-    flex: 1,
-    width: "100%",
-    resizeMode: "contain",
+    height: 250,
+    resizeMode: "center",
     alignSelf: "center"
   },
   form: {

@@ -8,6 +8,7 @@ class Home extends Component {
         const items = [
             { name: 'Buka Rekening', code: '#1abc9c', conversation: [{}]}, 
             { name: 'Rekening Saya', code: '#2ecc71', conversation: [{}] },
+            { name: 'Bantuan', code: '#e67e22', conversation: [{}] },
             { name: 'Promo', code: '#f39c12', conversation: [{}] },
             { name: 'Transfer Uang', code: '#3498db', conversation: [{}] }, 
             { name: 'Isi E-Money', code: '#9b59b6', conversation: [{}] },
@@ -18,7 +19,6 @@ class Home extends Component {
             { name: 'Produk Mandiri', code: '#2980b9', conversation: [{}] },
             { name: 'Layanan Mandiri', code: '#8e44ad', conversation: [{}] }, 
             { name: 'Complaint & Feedback', code: '#2c3e50', conversation: [{}] },
-            { name: 'Bantuan', code: '#e67e22', conversation: [{}] },
             { name: 'Suku Bunga', code: '#ecf0f1', conversation: [{}] },            
             { name: 'History Transaksi', code: '#e74c3c', conversation: [{}] }, 
             { name: 'Status Transaksi', code: '#c0392b', conversation: [{}] }
