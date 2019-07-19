@@ -1,3 +1,4 @@
+import { apigateway } from '../../api';
 const base_url = `${apigateway}/ServicingAPI/1.0/customer/casa`;
 
 const get = (params) => {
@@ -9,6 +10,9 @@ const get = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -22,6 +26,9 @@ const get_balance = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -40,6 +47,9 @@ const get_transaction = (params) => {
             endDate: ``,
             startDate: ``
 
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

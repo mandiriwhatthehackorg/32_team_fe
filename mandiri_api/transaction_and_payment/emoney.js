@@ -1,3 +1,5 @@
+import { apigateway } from '../../api';
+
 const base_url = `${apigateway}/TrxAndPaymentAPI/1.0/emoney`;
 //Menerima dan memproses permintaan yang terkait dengan pembaharuan saldo emoney menggunakan saluran Mandiri e-channel dan pihak ketiga pada pelanggan melalui bank
 
@@ -9,6 +11,9 @@ const get = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -28,6 +33,9 @@ const post = (params) => {
                 // `amount`: `1000200`,
                 // `debitAccount`: `60000345094`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -41,6 +49,9 @@ const get_linkaja = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -60,6 +71,9 @@ const post_linkaja = (params) => {
                 // `debitAccount`: `60000345094`,
                 // `paymentAmount`: `21000`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -73,6 +87,9 @@ const get_gopay = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -92,6 +109,9 @@ const post_gopay = (params) => {
                 // `debitAccount`: `60000345094`,
                 // `paymentAmount`: `21000`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -105,6 +125,9 @@ const get_ovo = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -124,6 +147,9 @@ const post_ovo = (params) => {
                 // `debitAccount`: `60000345094`,
                 // `paymentAmount`: `21000`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

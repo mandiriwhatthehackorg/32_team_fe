@@ -1,3 +1,5 @@
+import { apigateway } from '../../api';
+
 const base_url = `${apigateway}/TrxAndPaymentAPI/1.0/transfer`;
 const post = (params) => {
     ////Transfer internal online - Menerima dan memproses permintaan terkait transfer dana antar rekening dalam bank yang sama
@@ -23,6 +25,9 @@ const post = (params) => {
                 // `remark1`: `Test RTGS 1`,
                 // `remark2`: `BIAYA KLIRING1`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -54,6 +59,9 @@ const post_prima = (params) => {
                 // `remark1`: `Test RTGS 1`,
                 // `remark2`: `BIAYA KLIRING1`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -84,6 +92,9 @@ const post_rtgs = (params) => {
                 // `remark1`: `Test RTGS 1`,
                 // `remark2`: `BIAYA KLIRING1`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -114,6 +125,9 @@ const post_skn = (params) => {
                 // `remark1`: `Test SKN 1`,
                 // `remark2`: `BIAYA KLIRING1`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

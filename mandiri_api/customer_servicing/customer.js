@@ -1,4 +1,4 @@
-
+import { apigateway } from '../../api';
 const get_customer = (params) => {
     //API ini digunakan untuk melihat informasi nasabah Bank Mandiri sesuai CIF number
 
@@ -8,6 +8,9 @@ const get_customer = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

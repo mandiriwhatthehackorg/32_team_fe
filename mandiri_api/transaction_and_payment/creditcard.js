@@ -1,3 +1,4 @@
+import { apigateway } from '../../api';
 const base_url = `${apigateway}/TrxAndPaymentAPI/1.0/creditcard/mandiri`;
 
 //Menerima dan memproses permintaan terkait dengan akun kartu kredit yang diinisiasi oleh saluran mandiri atau aplikasi pihak ketiga
@@ -9,6 +10,9 @@ const get = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -30,6 +34,9 @@ const post = (params) => {
                 // `debitCurrency`: `IDR`,
                 // `creditCurrency`: `IDR`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

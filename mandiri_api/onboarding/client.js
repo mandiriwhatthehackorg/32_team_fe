@@ -1,4 +1,4 @@
-
+import { apioob } from '../../api';
 //Role client digunakan oleh calon nasabah yang akan melakukan pembukaan rekening. Alur pembukaan rekening dapat dilihat pada gambar berikut. Proses initiate, create session, dan resend OTP tidak memerlukan autentikasi keamanan, namun proses lainnya memerlukan autentikasi keamanan dalam bentuk token (JWT).
 
 const post_initiate_session = (params) => {
@@ -16,6 +16,9 @@ const post_initiate_session = (params) => {
             // `nik`: `<nik>`,
             // `phone`: `<phone>`,
             // `ttl`: `yyyy-mm-dd`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -32,6 +35,9 @@ const post_resend_otp = (params) => {
         request: {
             ...params.body
             // `nik`: `<nik>`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -49,6 +55,9 @@ const post_validate = (params) => {
         request: {
             ...params.body
             // `otp`: `<OTP from email>`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -69,6 +78,9 @@ const post_submit_data = (params) => {
             // `cardType`: `<card code>`,
             // `motherName`: `<mother name>`,
             // `branchCode`: `<branch code>`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -86,6 +98,9 @@ const post_submit_ktp_image = (params) => {
         request: {
             ...params.body
             // file: `<file>`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -103,6 +118,9 @@ const post_submit_selfie_image = (params) => {
         request: {
             ...params.body
             // file: `<file>`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -120,6 +138,9 @@ const post_submit_signature_image = (params) => {
         request: {
             ...params.body
             // file: `<file>`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -137,6 +158,9 @@ const post_do_dky = (params) => {
         request: {
             ...params.body
             // `callReff`: `tQzqr`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -152,6 +176,9 @@ const post_create_account = (params) => {
         },
         request: {
             ...params.body
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

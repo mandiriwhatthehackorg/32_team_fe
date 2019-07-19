@@ -1,3 +1,4 @@
+import { apioob } from '../../api';
 const post = (params) => {
     //API ini digunakan untuk mendapatkan akses code (JWT) sehingga akun tersebut dapat menggunakan API tersebut.  
     return {
@@ -10,6 +11,9 @@ const post = (params) => {
             ...params.body
             // `username`: `userHackaton`,
             // `password`: `passwordHackaton`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

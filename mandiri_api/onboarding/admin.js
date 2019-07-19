@@ -1,4 +1,4 @@
-
+import { apioob } from '../../api';
 //Digunakan untuk keperluan insert, update, delete beberapa data awalan seperti jenis kartu, jenis produk, data calon nasabah, dan cabang. Selain untuk melakukan insert, role ini dapat melakukan update dan delete juga terhadap data-data card, product, citizen, dan branch. Berikut adalah API yang dapat diakses oleh role ADMIN.
 
 const post_branch = (params) => {
@@ -16,6 +16,9 @@ const post_branch = (params) => {
             // "branchCode": `76548`,
             // "branchAddress": `Kalimantan`,
             // "branchName": `Cabang Area Kalimantan`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -34,6 +37,9 @@ const post_card = (params) => {
             ...params.body
             // "cardCode": `silver`,
             // "cardName": `Mandiri Silver Reguler`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -52,6 +58,9 @@ const post_product = (params) => {
             ...params.body
             // "productCode": `taspen`,
             // "productName": `Tabungan Pensiun`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -73,6 +82,9 @@ const post_citizen = (params) => {
             // "name": `Micky`,
             // "dob": `1990-10-23`,
             // "address": `Semarang Barat`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -86,6 +98,9 @@ const get_branch = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -99,6 +114,9 @@ const get_card = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -112,6 +130,9 @@ const get_product = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -125,6 +146,9 @@ const get_citizen = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -139,6 +163,9 @@ const delete_branch = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -152,6 +179,9 @@ const delete_card = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -165,6 +195,9 @@ const delete_product = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -178,6 +211,9 @@ const delete_citizen = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

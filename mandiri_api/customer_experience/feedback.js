@@ -1,3 +1,4 @@
+import { apigateway } from '../../api';
 const base_url = `${apigateway}/CustomerExpAPI/1.0`;
 
 const post = (params) => {
@@ -31,6 +32,9 @@ const post = (params) => {
                 // "closingStatement": `how satisfied are you?`,
                 // "closingRating": `5`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -43,6 +47,9 @@ const get = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

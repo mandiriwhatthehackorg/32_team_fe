@@ -1,3 +1,4 @@
+import { apigateway } from '../../api';
 const base_url = `${apigateway}/SalesAPI/1.0/fee`;
 
 const get_mtrAccount = (params) => {
@@ -9,6 +10,9 @@ const get_mtrAccount = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -22,6 +26,9 @@ const get_savingAccount = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -35,6 +42,9 @@ const get_tabunganValas = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

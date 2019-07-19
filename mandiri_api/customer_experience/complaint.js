@@ -1,3 +1,4 @@
+import { apigateway } from '../../api';
 const base_url = `${apigateway}/CustomerExpAPI/1.0`;
 
 const post = (params) => {
@@ -17,7 +18,7 @@ const post = (params) => {
                 // "origin": `PHONE`,
                 // "subject": `bill payment failed`,
                 // "reason": `such as instruction not clear`,
-                // "priority": `2`,
+                // "priority": `2`, 
                 // "status": `OPEN`,
                 // "ownerId": `5756098678095872`,
                 // "parentId": `882234456773456`,
@@ -32,6 +33,9 @@ const post = (params) => {
                 //     "tester@gmail.com"
                 // ]
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -44,6 +48,9 @@ const get = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

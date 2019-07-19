@@ -1,4 +1,4 @@
-
+import { apioob } from '../../api';
 
 const post_get_kyc_data = (params) => {
     //API ini digunakan untuk menarik data dari basis data menggunakan callReff sebagai kunci pencarian. callReff ini didapatkan setelah calon nasabah melakukan kegiatan KYC.
@@ -13,6 +13,9 @@ const post_get_kyc_data = (params) => {
         request: {
             ...params.body
             // "callReff": `tQzqr`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -42,6 +45,9 @@ const post_submit_kyc_result = (params) => {
             // "product": `true`,
             // "card": `true`,
             // "branch": `true`
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

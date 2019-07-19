@@ -11,11 +11,11 @@ const transaction_and_payment = require(`./transaction_and_payment`);
 const onboarding = require(`./onboarding`);
 
 export default {
-    customer_experience,
-    customer_servicing,
-    marketing,
-    product,
-    sales,
-    transaction_and_payment,
-    onboarding
+    ...customer_experience,
+    ...customer_servicing,
+    ...marketing,
+    ...product,
+    ...sales,
+    ...transaction_and_payment,
+    ...onboarding
 };

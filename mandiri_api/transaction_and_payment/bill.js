@@ -1,3 +1,4 @@
+import { apigateway } from '../../api';
 const base_url = `${apigateway}/TrxAndPaymentAPI/1.0/bill`;
 
 const get_balance = (params) => {
@@ -9,6 +10,9 @@ const get_balance = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -22,6 +26,9 @@ const get_axafinancial = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -43,6 +50,9 @@ const post_axafinancial = (params) => {
                 // `billingId`: `01`,
                 // `companyAccountNumber`: `9910000011297`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -56,6 +66,9 @@ const get_education = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -77,6 +90,9 @@ const post_education = (params) => {
                 // `billingId`: `01`,
                 // `companyAccountNumber`: `9910000011297`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -90,6 +106,9 @@ const get_firstmedia = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -111,6 +130,9 @@ const post_firstmedia = (params) => {
                 // `billingId`: `01`,
                 // `companyAccountNumber`: `9910000011297`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -123,6 +145,9 @@ const get_indosat_product = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -136,6 +161,9 @@ const get_indosat = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -163,6 +191,9 @@ const post_indosat = (params) => {
                 // `billingId`: `20190501001`,
                 // `companyAccountNumber`: `0060007500212`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -176,6 +207,9 @@ const get_kai = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -197,6 +231,9 @@ const post_kai = (params) => {
                 // `billingId`: `01`,
                 // `companyAccountNumber`: `9910000011297`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -210,6 +247,9 @@ const get_pam = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -231,6 +271,9 @@ const post_pam = (params) => {
                 // `billingId`: `201905001,201906003`,
                 // `companyAccountNumber`: `222222`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -244,6 +287,9 @@ const get_pln = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -272,6 +318,9 @@ const post_pln = (params) => {
                 // `billingId`: `201905001,201906003`,
                 // `companyAccountNumber`: `60000345094`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -284,6 +333,9 @@ const get_telkomsel_product = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -298,6 +350,9 @@ const get_telkomsel = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -325,6 +380,9 @@ const post_telkomsel = (params) => {
                 // `billingId`: `20190510001,20190610001`,
                 // `companyAccountNumber`: `9910000011230`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -337,6 +395,9 @@ const get_three_product = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -350,6 +411,9 @@ const get_three = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -370,6 +434,9 @@ const post_three = (params) => {
                 // `paymentAmount`: `50000`,
                 // `companyAccountNumber`: `0060007500212`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -382,6 +449,9 @@ const get_xl_product = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -395,6 +465,9 @@ const get_xl = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
@@ -424,6 +497,9 @@ const post_xl = (params) => {
                 // `companyAccountNumber`: `9910000011230`
 
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

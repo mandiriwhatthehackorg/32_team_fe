@@ -1,4 +1,4 @@
-
+import { apigateway } from '../../api';
 const post = (params) => {
     //API ini digunakan untuk melakukan registrasi dan unregistrasi pada layanan e-billing
 
@@ -22,6 +22,9 @@ const post = (params) => {
                 // // #2
                 // `id`: `9542762645005`
             }
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }

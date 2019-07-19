@@ -1,3 +1,5 @@
+import { apigateway } from '../../api';
+
 const get = (params) => {
     //API ini digunakan untuk melihat promosi merchant yang tersedia di Bank Mandiri sesuai dengan periode promosi
     return {
@@ -6,6 +8,9 @@ const get = (params) => {
         header: {
             token: params.bearer_token,
             "CONTENT-TYPE": application / json
+        },
+        process: (data, callback) =>{
+            
         }
     }
 }
