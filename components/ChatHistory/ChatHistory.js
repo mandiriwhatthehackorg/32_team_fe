@@ -8,106 +8,38 @@ export default class ChatHistory extends React.Component {
   render() {
     let list_chat_history = [
       {
-        group: "Today",
+        group: "Bank Mandiri",
         contents: [
           {
             image_url: require("../../assets/images/icon.png"),
-            label: "Read the Expo documentation"
+            label: "Tabungan Deposito 1"
           },
           {
             icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
+            label: "Tabungan Deposito 2"
+          },
+          ,
+          {
+            icon: "ios-chatboxes",
+            label: "Peminjaman"
           }
         ]
       },
       {
-        group: "Yesterday",
+        group: "Bank BNI",
         contents: [
           {
             image_url: require("../../assets/images/icon.png"),
-            label: "Read the Expo documentation"
+            label: "Tabungan Deposito 1"
           },
           {
             icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
+            label: "Tabungan Deposito 2"
           },
+          ,
           {
             icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          }
-        ]
-      },
-      {
-        group: "This week",
-        contents: [
-          {
-            image_url: require("../../assets/images/icon.png"),
-            label: "Read the Expo documentation"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          }
-        ]
-      },
-      {
-        group: "This Month",
-        contents: [
-          {
-            image_url: require("../../assets/images/icon.png"),
-            label: "Read the Expo documentation"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
-          },
-          {
-            icon: "ios-chatboxes",
-            label: "Ask a question on the Expo forums"
+            label: "Peminjaman"
           }
         ]
       }
@@ -159,12 +91,9 @@ export default class ChatHistory extends React.Component {
   }
 
   _handlePressDocs = () => {
-    WebBrowser.openBrowserAsync('http://docs.expo.io');
-  };
+    this.props.navigation.navigate("DetailProduct")
+  }; 
 
-  _handlePressForums = () => {
-    WebBrowser.openBrowserAsync('http://forums.expo.io');
-  };
 }
 
 const styles = StyleSheet.create({

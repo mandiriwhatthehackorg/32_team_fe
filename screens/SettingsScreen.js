@@ -8,9 +8,9 @@ export default class SettingsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-          <Settings />
+          <Settings navigation={this.props.navigation}/>
         </ScrollView>
-        <ActionButton navigation={this.props.navigation}/>
+        {/* <ActionButton navigation={this.props.navigation}/> */}
       </View>
     )
   }

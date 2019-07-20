@@ -4,8 +4,10 @@ import Button from "../components/Button";
 import FormTextInput from "../components/FormTextInput";
 import imageLogo from "../assets/images/robot.gif";
 import colors from "../constants/Colors";
+import { Header, Button as Buttons } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-class LoginRegister extends React.Component {
+class ConnectToBank extends React.Component {
     constructor(props){
         super(props);
         this.state={
@@ -28,6 +30,22 @@ class LoginRegister extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header
+          leftComponent={
+            <Buttons
+              onPress={() => this.props.navigation.navigate('Home')}
+              icon={
+                <Icon
+                  name="arrow-left"
+                  size={18}
+                  color="white"
+                />
+              }
+            >
+            </Buttons>
+          }
+          centerComponent={{ text: 'Add Deposito / Pinjaman', style: { color: '#fff', fontSize: 18 } }}
+        />
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
           <FormTextInput
@@ -72,4 +90,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default LoginRegister;
+export default ConnectToBank;

@@ -22,24 +22,6 @@ export default class Settings extends React.Component {
           sections={sections}
         />
         <ScrollView>
-          <Touchable
-            style={styles.option}
-            background={Touchable.Ripple('#ccc', false)}
-            onPress={this._handlePressDocs}>
-            <View style={{ flexDirection: 'row' }}>
-              <View style={styles.optionIconContainer}>
-                <Image
-                  source={require('../../assets/images/icon.png')}
-                  resizeMode="contain"
-                  fadeDuration={0}
-                  style={{ width: 30, height: 30, marginTop: 1 }}
-                />
-              </View>
-              <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Bot Profile</Text>
-              </View>
-            </View>
-          </Touchable>
  
           <Touchable
             style={styles.option}
@@ -114,7 +96,9 @@ export default class Settings extends React.Component {
           <Touchable
             style={styles.option}
             background={Touchable.Ripple('#ccc', false)}
-            onPress={this._handlePressForums}>
+            onPress={()=>{
+              this.props.navigation.navigate("LoginRegister")
+            }}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionIconContainer}>
                 <Ionicons name="md-log-out" size={22} color="#ccc" />
@@ -197,12 +181,8 @@ export default class Settings extends React.Component {
     }
   };
 
-  _handlePressDocs = () => {
-    WebBrowser.openBrowserAsync('http://docs.expo.io');
-  };
-
   _handlePressForums = () => {
-    WebBrowser.openBrowserAsync('http://forums.expo.io');
+    
   };
 
 }

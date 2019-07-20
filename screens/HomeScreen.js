@@ -8,34 +8,111 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions
 } from 'react-native';
-
-import { MonoText } from '../components/StyledText';
-import ActionButton from '../components/ActionButton';
+import Button from "../components/Button";
 import Home from '../components/Home';
+import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
+import { Gravity } from 'expo-sensors/build/DeviceMotion';
+const { width: screenWidth } = Dimensions.get('window')
+import { Header } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class HomeScreen extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      entries: [
+        {
+          title: 'Beautiful and dramatic Antelope Canyon',
+          subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+          thumbnail: 'https://camo.githubusercontent.com/7590ec7e6b705a6e8e381397247d576c6db72147/68747470733a2f2f692e696d6775722e636f6d2f653157625a63752e676966'
+        },
+        {
+          title: 'Earlier this morning, NYC',
+          subtitle: 'Lorem ipsum dolor sit amet',
+          thumbnail: 'https://i.imgur.com/UPrs1EWl.jpg'
+        },
+        {
+          title: 'White Pocket Sunset',
+          subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
+          thumbnail: 'https://i.imgur.com/MABUbpDl.jpg'
+        },
+        {
+          title: 'Acrocorinth, Greece',
+          subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
+          thumbnail: 'https://i.imgur.com/KZsmUi2l.jpg'
+        },
+        {
+          title: 'The lone tree, majestic landscape of New Zealand',
+          subtitle: 'Lorem ipsum dolor sit amet',
+          thumbnail: 'https://i.imgur.com/2nCt3Sbl.jpg'
+        },
+        {
+          title: 'Middle Earth, Germany',
+          subtitle: 'Lorem ipsum dolor sit amet',
+          thumbnail: 'https://i.imgur.com/lceHsT6l.jpg'
+        }
+      ]
+    };
+  }
+
+  _renderItem({ item, index }, parallaxProps) {
+    return (
+      <View style={styles.item}>
+        <ParallaxImage
+          source={{ uri: item.thumbnail }}
+          containerStyle={styles.imageContainer}
+          style={styles.image}
+          parallaxFactor={0.4}
+          {...parallaxProps}
+        />
+        <Text style={{
+          paddingTop: 5,
+          paddingHorizontal: 5,
+          fontSize: 18
+        }} numberOfLines={2}>
+          {item.title}
+        </Text>
+        <Text style={{
+          padding: 5,
+          fontSize: 12
+        }} numberOfLines={2}>
+          {item.title}
+        </Text>
+      </View>
+    );
+  }
+
   render() {
     return (
+
       <View style={styles.container}>
+        <Header
+          centerComponent={{ text: 'DEMO APPS', style: { color: '#fff', fontSize: 18 } }}
+        />
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
-          <Text style={styles.getStartedTitle}>Robot Name</Text>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={require('../assets/images/robot.gif')}
-              style={styles.welcomeImage}
+
+          <Home navigation={this.props.navigation} />
+
+          <View style={{ marginTop: 10 }}>
+            <Carousel
+              sliderWidth={screenWidth}
+              sliderHeight={screenWidth}
+              itemWidth={screenWidth - 60}
+              data={this.state.entries}
+              renderItem={this._renderItem}
+              hasParallaxImages={true}
             />
           </View>
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>
-              Talk to with me with bellow conversations
-            </Text>
-          </View>
-          <Home />
+          <View style={{
+            height: 20
+          }} />
         </ScrollView>
-        <ActionButton navigation={this.props.navigation} />
+        {/* <ActionButton navigation={this.props.navigation} /> */}
       </View>
     );
   }
@@ -70,7 +147,7 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: 'center',
-    marginBottom: 5
+    marginHorizontal: '20%'
   },
   getStartedTitle: {
     marginTop: 20,
@@ -96,5 +173,23 @@ const styles = StyleSheet.create({
 
   homeScreenFilename: {
     marginVertical: 7,
+  },
+
+  item: {
+    backgroundColor: "#f6f8faeb",
+    width: screenWidth - 80,
+    height: screenWidth - 80,
+    borderRadius: 8
+  },
+  imageContainer: {
+    flex: 1,
+    marginBottom: 1, // Prevent a random Android rendering issue
+    backgroundColor: 'white',
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+  },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: 'cover',
   },
 });

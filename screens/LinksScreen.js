@@ -12,9 +12,9 @@ export default class LinksScreen extends React.Component {
          * Go ahead and delete ExpoLinksView and replace it with your content;
          * we just wanted to provide you with some helpful links.
          */}
-          <ChatHistory />
+          <ChatHistory navigation = {this.props.navigation} />
         </ScrollView>
-        <ActionButton navigation={this.props.navigation}/>
+        {/* <ActionButton navigation={this.props.navigation}/> */}
       </View>
     );
   }

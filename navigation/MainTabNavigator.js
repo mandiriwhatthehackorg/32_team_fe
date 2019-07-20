@@ -30,7 +30,7 @@ HomeStack.navigationOptions = {
       }
     />
   ),
-};
+}; 
 
 HomeStack.path = '';
 
@@ -47,7 +47,7 @@ LinksStack.navigationOptions = {
   showLabel: false,
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={
-      `comments${focused ? '' : '-o'}`
+      `credit-card`
     } />
   ),
 };
