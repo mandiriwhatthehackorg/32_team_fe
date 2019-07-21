@@ -16,42 +16,61 @@ export default class Settings extends React.Component {
         return (
             <View style={{ flex: 1, marginHorizontal: 20, marginVertical: 20 }}>
                 <Touchable
-                    style={styles.option}
-                    background={Touchable.Ripple('#ccc', false)}
+                    style={{
+                        backgroundColor: '#30794E',
+                        paddingHorizontal: 30,
+                        paddingVertical: 20,
+                        borderBottomWidth: StyleSheet.hairlineWidth,
+                        borderBottomColor: '#EDEDED',
+                        marginBottom: 7
+                    }}
+                    background={Touchable.Ripple('#30794E', false)}
                     onPress={this._handlePressDocs}>
                     <View style={{ flexDirection: 'row' }}>
                         <View style={styles.optionIconContainer}>
                             <Image
-                                source={require('../../assets/images/icon.png')}
+                                source={require('../../assets/images/Button-deposito-2.png')}
                                 resizeMode="contain"
                                 fadeDuration={0}
-                                style={{ width: 30, height: 30, marginTop: 1 }}
+                                style={{ width: 50, marginTop: 1 }}
                             />
                         </View>
-                        <View style={styles.optionTextContainer}>
-                            <Text style={styles.optionText}>Add Deposito</Text>
+                        <View style={{marginLeft: 20}}>
+                            <Text style={styles.optionText}>TAMBAH PINJAMAN</Text>
                         </View>
                     </View>
                 </Touchable>
 
                 <Touchable
-                    style={styles.option}
+                    style={{
+                        backgroundColor: '#194A6D',
+                        paddingHorizontal: 30,
+                        paddingVertical: 20,
+                        borderBottomWidth: StyleSheet.hairlineWidth,
+                        borderBottomColor: '#EDEDED',
+                        marginBottom: 7
+                    }}
                     background={Touchable.Ripple('#ccc', false)}
-                    onPress={this._handlePressDocs}>
+                    onPress={this._handlePressDocs2}>
                     <View style={{ flexDirection: 'row' }}>
                         <View style={styles.optionIconContainer}>
-                            <Ionicons name="ios-barcode" size={22} color="#ccc" />
+                            <Image
+                                source={require('../../assets/images/Button-tabungan.png')}
+                                resizeMode="contain"
+                                fadeDuration={0}
+                                style={{ height: 30, marginTop: 1, marginLeft: 10 }}
+                            />
                         </View>
-                        <View style={styles.optionTextContainer}>
-                            <Text style={styles.optionText}>Add Pinjaman</Text>
+                        <View style={{marginLeft: 23}}>
+                            <Text style={styles.optionText}>TAMBAH DEPOSITO</Text>
                         </View>
                     </View>
                 </Touchable>
 
-                <View style={{marginTop: 20}}>
-                <Button label={"Connect With Bank Account"} style={{marginHorizontal:20}} onPress={() => {
-                    this.props.navigation.navigate("ConnectToBank")
-                }} />
+                <View style={{ marginTop: 20 }}>
+                    <Button label={"Hubungkan akun bank anda"} color={"#F7B519"} style={{ marginHorizontal: 20, backgroundColor: "#F7B519" }} onPress={() => {
+                        this.props.navigation.navigate("ConnectToBank")
+                    }} />
                 </View>
             </View>
         );
@@ -75,6 +94,10 @@ export default class Settings extends React.Component {
 
     _handlePressDocs = () => {
         this.props.navigation.navigate("AddTransaction")
+    };
+
+    _handlePressDocs2 = () => {
+        this.props.navigation.navigate("AddTransaction5")
     };
 
     _handlePressForums = () => {
@@ -214,16 +237,11 @@ const styles = StyleSheet.create({
     optionIconContainer: {
         marginRight: 9,
     },
-    option: {
-        backgroundColor: 'blue',
-        paddingHorizontal: 20,
-        paddingVertical: 20,
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        borderBottomColor: '#EDEDED',
-        marginBottom: 7
-    },
+    
     optionText: {
-        fontSize: 17,
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "white",
         marginTop: 1,
     },
     option2: {

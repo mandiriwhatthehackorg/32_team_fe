@@ -1,13 +1,13 @@
 // untuk add deposito dan pinjaman
 import * as React from "react";
-import { StyleSheet, View, Text, TextInput, Picker, TouchableOpacity, Modal, TouchableHighlight, Alert } from "react-native";
+import { StyleSheet, View, Text, TextInput, Picker, CheckBox, TouchableOpacity, Modal, TouchableHighlight, Alert } from "react-native";
 import Button from "../components/Button";
 import FormTextInput from "../components/FormTextInput";
 import colors from "../constants/Colors";
 import { Header, Button as Buttons } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class AddTransaction extends React.Component {
+class AddTransaction5 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,8 +17,9 @@ class AddTransaction extends React.Component {
       selected_deposito: "",
       no: "",
       name: "",
-      limit: "",
-      expired: ""
+      ballance: "",
+      expired: "",
+      checked: false
     }
   }
   setModalVisible(visible) {
@@ -52,7 +53,7 @@ class AddTransaction extends React.Component {
             >
             </Buttons>
           }
-          centerComponent={{ text: 'PINJAMAN BARU', style: { color: '#fff', fontSize: 20 } }}
+          centerComponent={{ text: 'DEPOSITO BARU', style: { color: '#fff', fontSize: 20 } }}
         />
         <Modal transparent={true}
           visible={this.state.modalVisible}>
@@ -63,19 +64,19 @@ class AddTransaction extends React.Component {
             alignItems: 'center',
             backgroundColor: '#eff0f1d9'
           }}>
-            
+
             <View style={{
               width: '80%',
               height: 500,
               backgroundColor: "white",
               padding: "5%"
             }}>
-              <View><Text style={{fontWeight: 'bold', fontSize: 18}}>MANDIRI DEPOSITO</Text></View>
+              <View><Text style={{ fontWeight: 'bold', fontSize: 18 }}>REKENING MANDIRI</Text></View>
               <TouchableOpacity style={{ width: "100%" }} onPress={() => {
                 this.setState({
                   no: "1370002837980009",
                   name: "BAGUS BASUKI",
-                  limit: "80000000",
+                  ballance: "80000000",
                   expired: 6
                 });
               }}>
@@ -117,7 +118,7 @@ class AddTransaction extends React.Component {
                 this.setState({
                   no: "1370002837489233",
                   name: "BAGUS BASUKI",
-                  limit: "80000000",
+                  ballance: "80000000",
                   expired: 6,
                 });
               }}>
@@ -126,7 +127,7 @@ class AddTransaction extends React.Component {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  
+
                   <View style={{ width: "90%", height: 100, flexDirection: 'row', }}>
                     <View style={{
                       width: "30%", flexDirection: 'column',
@@ -158,18 +159,18 @@ class AddTransaction extends React.Component {
               </TouchableOpacity>
               <View style={{ height: 20 }} />
               <Text>
-                No Deposito: <Text style={{ fontWeight: "bold" }}> {this.state.no}</Text>
+                No Rekening: <Text style={{ fontWeight: "bold" }}> {this.state.no}</Text>
               </Text>
               <Text>
                 Nama: <Text style={{ fontWeight: "bold" }}> {this.state.name}</Text>
               </Text>
               <Text>
-                Total Limit: <Text style={{ fontWeight: "bold" }}> {this.state.limit?"80,000,000.00":"0"} </Text>
+                Saldo: <Text style={{ fontWeight: "bold" }}> {this.state.ballance ? "100,000,000.00" : "0"} </Text>
               </Text>
-              <Text>
+              {/* <Text>
                 Jatuh Tempo Deposito: <Text style={{ fontWeight: "bold" }}> {this.state.expired} Bulan </Text>
-              </Text>
-              <View style={{ height: 20 }} />
+              </Text> */}
+              <View style={{ height: 30 }} />
               <Button label={"Pilih"} onPress={() => {
                 this.setModalVisible(false);
               }} />
@@ -207,15 +208,15 @@ class AddTransaction extends React.Component {
                   />
                 </View>
                 <View>
-                  <Text style={{ fontSize: 12 }}>CREDIT LIMIT</Text>
+                  <Text style={{ fontSize: 12 }}>SALDO</Text>
                 </View>
               </View>
               <View style={{ width: "70%" }}>
                 <View style={{ marginBottom: 40, marginTop: 40 }}>
-                  <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'right', marginRight: 10 }}>PILIH REKENING AGUNAN</Text>
+                  <Text style={{ fontSize: 16, fontWeight: 'bold', textAlign: 'right', marginRight: 10 }}>PILIH REKENING</Text>
                 </View>
                 <View>
-                  <Text style={{ fontSize: 16, textAlign: 'right', marginRight: 10 }}>IDR {this.state.limit}.00</Text>
+                  <Text style={{ fontSize: 16, textAlign: 'right', marginRight: 10 }}>IDR {this.state.ballance}.00</Text>
                 </View>
               </View>
             </View>
@@ -257,16 +258,38 @@ class AddTransaction extends React.Component {
             Rekening Penerima
           </Text>
           <Picker
-            value={this.state.rekpenerima}
-            onChangeText={this.handleEmailChange}
-            placeholder={"Rekening Penerima"}
+            value={this.state.pinjaman2}
+            placeholder={"Intsruksi saat jatuh tempo"}
             style={[styles.textInput]}
+            onChangeText={(e) => {
+              console.log(e)
+              this.setState({
+                pinjaman2: e
+              })
+            }}
           >
-            <Picker.Item label="1370002833948564 / BAGUS BASUKI" value="1" />
+            <Picker.Item label="Auto - Renewer" value="Auto - Renewer" />
+            <Picker.Item label="Non Auto - Renewer" value="Non Auto - Renewer" />
           </Picker>
+          <View style={{ height: 10 }} />
 
-          <Button label={"Lanjut"} onPress={() => {
-            this.props.navigation.navigate("AddTransaction2")
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={{ color: 'blue' }}
+              onPress={() => { }}>
+              Daftar Syarat dan ketentuan
+            </Text>
+            <View style={{ height: 10 }} />
+            <View style={{ flexDirection: 'row', width: '80%' }}>
+              <CheckBox
+                value={this.state.checked}
+                onValueChange={() => this.setState({ checked: !this.state.checked })}
+              />
+              <Text style={{ marginTop: 5 }}> Saya telah membaca, memahami,dan menyetujui atas syarat dan ketentuan yang tercantum di atas </Text>
+            </View>
+          </View>
+          <View style={{ height: 30 }} />
+          <Button  disabled={!this.state.checked} label={"KONFIRMASI"} onPress={() => {
+            this.props.navigation.navigate("AddTransaction6")
           }} />
 
         </View>
@@ -300,4 +323,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default AddTransaction;
+export default AddTransaction5;

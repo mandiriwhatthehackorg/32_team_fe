@@ -8,6 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const config = Platform.select({
+  headerLayoutPreset: 'center',
   web: { headerMode: 'screen' },
   default: {},
 });
@@ -20,17 +21,24 @@ const HomeStack = createStackNavigator(
 );
 
 HomeStack.navigationOptions = {
-  tabBarOptions: { showLabel: false },
+  tabBarOptions: {
+    activeTintColor:'#003A70',
+    style: {
+      backgroundColor: '#003A70',//color you want to change,
+    }, showLabel: false,
+  },
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({ focused, tintColor }) => (
     <TabBarIcon
       focused={focused}
+      color={tintColor}
+      
       name={
         `home`
       }
     />
   ),
-}; 
+};
 
 HomeStack.path = '';
 
@@ -42,7 +50,12 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarOptions: { showLabel: false },
+  tabBarOptions: {
+    showLabel: false,
+    style: {
+      backgroundColor: '#003A70',//color you want to change
+    }
+  },
   tabBarLabel: 'Chat History',
   showLabel: false,
   tabBarIcon: ({ focused }) => (
@@ -52,7 +65,7 @@ LinksStack.navigationOptions = {
   ),
 };
 
-LinksStack.path = '';
+LinksStack.path = 'lonk';
 
 const SettingsStack = createStackNavigator(
   {
@@ -62,7 +75,12 @@ const SettingsStack = createStackNavigator(
 );
 
 SettingsStack.navigationOptions = {
-  tabBarOptions: { showLabel: false },
+  tabBarOptions: {
+    showLabel: false,
+    style: {
+      backgroundColor: '#003A70',//color you want to change
+    }
+  },
   tabBarLabel: 'Settings',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={

@@ -14,9 +14,11 @@ class ChatRoomScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <Header
+                    backgroundColor={"#003A70"}
                     leftComponent={
                         <Button
-                        onPress={() => this.props.navigation.navigate('Home')}
+                            buttonStyle={{ backgroundColor: '#003A70' }}
+                            onPress={() => this.props.navigation.navigate('Main')}
                             icon={
                                 <Icon
                                     name="arrow-left"
@@ -27,7 +29,7 @@ class ChatRoomScreen extends React.Component {
                         >
                         </Button>
                     }
-                    centerComponent={{ text: 'Chatroom', style: { color: '#fff' , fontSize: 18 } }}
+                    centerComponent={{ text: 'Chatroom', style: { color: '#fff', fontSize: 18 } }}
                 />
                 <ChatRoom />
             </View>

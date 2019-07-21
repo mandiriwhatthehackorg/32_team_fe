@@ -32,7 +32,7 @@ export default class Settings extends React.Component {
                 <Ionicons name="ios-barcode" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Change Password</Text>
+                <Text style={styles.optionText}>Rubah kata sandi</Text>
               </View>
             </View>
           </Touchable>
@@ -46,7 +46,7 @@ export default class Settings extends React.Component {
                 <Ionicons name="ios-volume-high" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Sounds</Text>
+                <Text style={styles.optionText}>Suara</Text>
               </View>
             </View>
           </Touchable>
@@ -60,7 +60,7 @@ export default class Settings extends React.Component {
                 <Ionicons name="ios-color-palette" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Themes</Text>
+                <Text style={styles.optionText}>Tema</Text>
               </View>
             </View>
           </Touchable>
@@ -74,7 +74,7 @@ export default class Settings extends React.Component {
                 <Ionicons name="ios-notifications" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Notification</Text>
+                <Text style={styles.optionText}>Notifikasi</Text>
               </View>
             </View>
           </Touchable>
@@ -88,7 +88,7 @@ export default class Settings extends React.Component {
                 <Ionicons name="ios-finger-print" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>PIN & Fingerprint</Text>
+                <Text style={styles.optionText}>PIN & Sidik Jari</Text>
               </View>
             </View>
           </Touchable>
@@ -104,7 +104,7 @@ export default class Settings extends React.Component {
                 <Ionicons name="md-log-out" size={22} color="#ccc" />
               </View>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText}>Log Out</Text>
+                <Text style={styles.optionText}>Keluar</Text>
               </View>
             </View>
           </Touchable>
@@ -115,7 +115,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText2}>Help</Text>
+                <Text style={styles.optionText2}>Bantuan</Text>
               </View>
             </View>
           </Touchable>
@@ -125,7 +125,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText2}>Rate Us</Text>
+                <Text style={styles.optionText2}>Beri rating kami</Text>
               </View>
             </View>
           </Touchable>
@@ -135,7 +135,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText2}>Term of use</Text>
+                <Text style={styles.optionText2}>Ketentuan Penggunaan</Text>
               </View>
             </View>
           </Touchable>
@@ -145,7 +145,7 @@ export default class Settings extends React.Component {
             onPress={this._handlePressForums}>
             <View style={{ flexDirection: 'row' }}>
               <View style={styles.optionTextContainer}>
-                <Text style={styles.optionText2}>Privacy policy</Text>
+                <Text style={styles.optionText2}>Aturan privasi</Text>
               </View>
             </View>
           </Touchable>
@@ -198,14 +198,14 @@ const ListHeader = () => {
 
       <View style={styles.titleTextContainer}>
         <Text style={styles.nameText} numberOfLines={1}>
-          {manifest.name}
+          BAGUS BASUKI
         </Text>
 
         <Text style={styles.slugText} numberOfLines={1}>
-          {manifest.slug}
+          bagusbasuki
         </Text>
 
-        <Text style={styles.descriptionText}>Description about user</Text>
+        <Text style={styles.descriptionText}>More about me</Text>
       </View>
     </View>
   );
@@ -228,7 +228,7 @@ const AppIconPreview = ({ iconUrl }) => {
     iconUrl = 'https://s3.amazonaws.com/exp-brand-assets/ExponentEmptyManifest_192.png';
   }
 
-  return <Image source={{ uri: iconUrl }} style={{ width: 64, height: 64 }} resizeMode="cover" />;
+  return <Image source={require("../../assets/images/MITA.png")} style={{ width: 64, height: 64 }} resizeMode="cover" />;
 };
 
 const Color = ({ value }) => {

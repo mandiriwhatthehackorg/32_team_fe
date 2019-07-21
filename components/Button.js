@@ -7,7 +7,7 @@ class Button extends React.Component {
   render() {
     
     return (
-      <TouchableOpacity style={{...styles.container}} onPress={()=>{
+      <TouchableOpacity {...this.props} style={{...styles.container, backgroundColor: this.props.color?this.props.color: colors.DODGER_BLUE}} onPress={()=>{
           this.props.onPress()
       }}>
         <Text style={styles.text}>{this.props.label}</Text>
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.DODGER_BLUE,
     marginBottom: 12,
     paddingVertical: 12,
-    borderRadius: 4,
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: "rgba(255,255,255,0.7)"
   },

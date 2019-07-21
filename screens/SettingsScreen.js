@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import ActionButton from '../components/ActionButton';
 import Settings from '../components/Settings/Settings';
+import { Header } from 'react-native-elements';
 
 export default class SettingsScreen extends React.Component {
   render(){
@@ -17,7 +18,15 @@ export default class SettingsScreen extends React.Component {
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'Profile'
+  title: "PROFIL / SETTING",
+  headerStyle: {
+    backgroundColor: '#003A70'
+  },
+  headerTitleStyle:{
+    textAlign:"center", 
+    flex:1,
+    color: "white"
+  },
 };
 
 const styles = StyleSheet.create({

@@ -17,52 +17,61 @@ import { Gravity } from 'expo-sensors/build/DeviceMotion';
 const { width: screenWidth } = Dimensions.get('window')
 import { Header } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import axios from 'axios';
 
+const jpeg = require('../assets/images/5.jpeg')
 class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       entries: [
-        {
-          title: 'Beautiful and dramatic Antelope Canyon',
-          subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-          thumbnail: 'https://camo.githubusercontent.com/7590ec7e6b705a6e8e381397247d576c6db72147/68747470733a2f2f692e696d6775722e636f6d2f653157625a63752e676966'
-        },
-        {
-          title: 'Earlier this morning, NYC',
-          subtitle: 'Lorem ipsum dolor sit amet',
-          thumbnail: 'https://i.imgur.com/UPrs1EWl.jpg'
-        },
-        {
-          title: 'White Pocket Sunset',
-          subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-          thumbnail: 'https://i.imgur.com/MABUbpDl.jpg'
-        },
-        {
-          title: 'Acrocorinth, Greece',
-          subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-          thumbnail: 'https://i.imgur.com/KZsmUi2l.jpg'
-        },
-        {
-          title: 'The lone tree, majestic landscape of New Zealand',
-          subtitle: 'Lorem ipsum dolor sit amet',
-          thumbnail: 'https://i.imgur.com/2nCt3Sbl.jpg'
-        },
-        {
-          title: 'Middle Earth, Germany',
-          subtitle: 'Lorem ipsum dolor sit amet',
-          thumbnail: 'https://i.imgur.com/lceHsT6l.jpg'
-        }
       ]
     };
+    if(this.state.entries.length < 1){
+      axios
+      .get("http://mandiriteam32-wth-32.apps.openshift.mandiriwhatthehack.com/getpersonalloan")
+      .then(responses => {
+        let response = responses.data;
+        if (response.Response) {
+          if (response.Response.products) {
+            if (response.Response.products.productDetails) {
+              const data =response.Response.products.productDetails;
+
+              axios
+              .get("http://mandiriteam32-wth-32.apps.openshift.mandiriwhatthehack.com/getdeposito")
+              .then(responsess => {
+                response = responsess.data;
+                if (response.Response) {
+                  if (response.Response.products) {
+                    if (response.Response.products.productDetails) {
+                      
+                      this.setState({
+                        entries: [...response.Response.products.productDetails, ...data]
+                      })
+                    } 
+                  } 
+                } 
+              })
+              .catch(error => {
+                // console.log(error);
+              });
+
+            } 
+          } 
+        } 
+      })
+      .catch(error => {
+        // console.log(error);
+      });
+    }
   }
 
   _renderItem({ item, index }, parallaxProps) {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{ uri: item.thumbnail }}
+          source={jpeg}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}
@@ -71,15 +80,15 @@ class HomeScreen extends React.Component {
         <Text style={{
           paddingTop: 5,
           paddingHorizontal: 5,
-          fontSize: 18
+          fontSize: 19
         }} numberOfLines={2}>
-          {item.title}
+          {item.name}
         </Text>
         <Text style={{
           padding: 5,
           fontSize: 12
         }} numberOfLines={2}>
-          {item.title}
+          {item.description}
         </Text>
       </View>
     );
@@ -89,15 +98,12 @@ class HomeScreen extends React.Component {
     return (
 
       <View style={styles.container}>
-        <Header
-          centerComponent={{ text: 'DEMO APPS', style: { color: '#fff', fontSize: 18 } }}
-        />
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>
 
           <Home navigation={this.props.navigation} />
-
+          
           <View style={{ marginTop: 10 }}>
             <Carousel
               sliderWidth={screenWidth}
@@ -121,7 +127,15 @@ class HomeScreen extends React.Component {
 export default HomeScreen;
 
 HomeScreen.navigationOptions = {
-  header: null,
+  title: "DEPOSAVE",
+  headerStyle: {
+    backgroundColor: '#003A70'
+  },
+  headerTitleStyle:{
+    textAlign:"center", 
+    flex:1,
+    color: "white"
+  },
 };
 
 const styles = StyleSheet.create({
@@ -176,7 +190,7 @@ const styles = StyleSheet.create({
   },
 
   item: {
-    backgroundColor: "#f6f8faeb",
+    backgroundColor: "#eff2f6",
     width: screenWidth - 80,
     height: screenWidth - 80,
     borderRadius: 8

@@ -1,20 +1,20 @@
 import * as React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, Picker, Alert } from "react-native";
 import Button from "../components/Button";
 import FormTextInput from "../components/FormTextInput";
-import imageLogo from "../assets/images/robot.gif";
+import imageLogo from "../assets/images/Icon1copy.png";
 import colors from "../constants/Colors";
 import { Header, Button as Buttons } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class ConnectToBank extends React.Component {
-    constructor(props){
-        super(props);
-        this.state={
-            email: "",
-            password: ""
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
     }
+  }
   handleEmailChange = (email) => {
     this.setState({ email: email });
   };
@@ -31,9 +31,11 @@ class ConnectToBank extends React.Component {
     return (
       <View style={styles.container}>
         <Header
+          backgroundColor={"#003A70"}
           leftComponent={
             <Buttons
-              onPress={() => this.props.navigation.navigate('Home')}
+              buttonStyle={{ backgroundColor: '#003A70' }}
+              onPress={() => this.props.navigation.navigate('Main')}
               icon={
                 <Icon
                   name="arrow-left"
@@ -44,27 +46,34 @@ class ConnectToBank extends React.Component {
             >
             </Buttons>
           }
-          centerComponent={{ text: 'Add Deposito / Pinjaman', style: { color: '#fff', fontSize: 18 } }}
+          centerComponent={{ text: 'Connect Account', style: { color: '#fff', fontSize: 18 } }}
         />
         <Image source={imageLogo} style={styles.logo} />
         <View style={styles.form}>
+          <Picker
+            value={this.state.rekpenerima}
+            onChangeText={this.handleEmailChange}
+            placeholder={"Rekening Penerima"}
+            style={[styles.textInput]}
+          >
+            <Picker.Item label="Mandiri Online" value="1" />
+          </Picker>
           <FormTextInput
             value={this.state.email}
             onChangeText={this.handleEmailChange}
-            placeholder={"Email"}
+            placeholder={"Username"}
           />
           <FormTextInput
             value={this.state.password}
             onChangeText={this.handlePasswordChange}
             placeholder={"Password"}
           />
-          <Button label={"Login"} onPress={()=>{
-              this.handleLoginPress()
+          <Button label={"Connect Account"} onPress={() => {
+            Alert.alert('Selamat!',
+            'Koneksi ke Mandiri Online Berhasil!',)
+            this.handleLoginPress()
           }} />
-          <Button label={"Register"} onPress={()=>{
-              this.handleLoginPress()
-          }} />
-          
+
         </View>
       </View>
     );
@@ -79,11 +88,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   logo: {
-    height: 250,
+    marginTop: -100,
+    width: 350,
     resizeMode: "center",
     alignSelf: "center"
   },
   form: {
+    marginTop: -300,
     flex: 1,
     justifyContent: "center",
     width: "80%"

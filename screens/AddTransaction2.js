@@ -1,33 +1,60 @@
-// detail dari deposito / pinjaman / rekening
-
 // untuk add deposito dan pinjaman
 import * as React from "react";
-import { Image, StyleSheet, View, Text } from "react-native";
-import Button from "../components/Button";
+import { Image, StyleSheet, View, Text, TextInput, Picker, CheckBox } from "react-native";
+// import Button from "../components/Button";
 import FormTextInput from "../components/FormTextInput";
 import colors from "../constants/Colors";
 import { Header, Button as Buttons } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Button from "../components/Button";
 
-class DetailTransaction extends React.Component {
+class AddTransaction2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      transaction_id: ""
+      pinjaman: 1000000,
+      transaction_id: "",
+      selected_deposito: "",
+      no: "1370002833948564",
+      name: "BAGUS BASUKI",
+      limit: "800000000",
+      expired: 6,
+      deposito: [
+        {
+          no: "1370002833948564",
+          name: "BAGUS BASUKI",
+          limit: "800000000",
+          expired: 6
+        },
+        {
+          no: "912345678",
+          name: "BAGUS BASUKI",
+          limit: "900000000",
+          expired: 12,
+        }
+      ],
+      checked: false
     }
   }
   render() {
-    const param = this.props.navigation.state.params;
-    console.log(param)
-    const title = param.type;
+    const dataaa = []
+
+    for (let i = 0; i < this.state.expired; i++) {
+
+      dataaa.push(
+        <Picker.Item key={i} label={(i + 1) + " Bulan"} value={i + 1} />
+      )
+    }
+
     return (
+
       <View style={styles.container}>
         <Header
           backgroundColor={"#003A70"}
           leftComponent={
             <Buttons
               buttonStyle={{ backgroundColor: '#003A70' }}
-              onPress={() => this.props.navigation.navigate('Links')}
+              onPress={() => this.props.navigation.navigate('AddTransaction')}
               icon={
                 <Icon
                   name="arrow-left"
@@ -38,7 +65,7 @@ class DetailTransaction extends React.Component {
             >
             </Buttons>
           }
-          centerComponent={{ text: title, style: { color: '#fff', fontSize: 18 } }}
+          centerComponent={{ text: 'PENGAJUAN PINJAMAN BARU', style: { color: '#fff', fontSize: 18 } }}
         />
         <View style={{
           height: 200,
@@ -95,12 +122,27 @@ class DetailTransaction extends React.Component {
 
           <View style={{ height: 10 }} />
 
+          <View style={{ flexDirection: 'column' }}>
+            <Text style={{ color: 'blue' }}
+              onPress={() => { }}>
+              Daftar Syarat dan ketentuan
+            </Text>
+            <View style={{ height: 10 }} />
+            <View style={{ flexDirection: 'row', width: '80%' }}>
+              <CheckBox
+                value={this.state.checked}
+                onValueChange={() => this.setState({ checked: !this.state.checked })}
+              />
+              <Text style={{ marginTop: 5 }}> Saya telah membaca, memahami,dan menyetujui atas syarat dan ketentuan yang tercantum di atas </Text>
+            </View>
+          </View>
           <View style={{ height: 30 }} />
-          <Button label={"KEMBALI"} color="#F7B519" onPress={() => {
-            this.props.navigation.navigate("Links")
+          <Button disabled={!this.state.checked} label={"KONFIRMASI"} onPress={() => {
+            this.props.navigation.navigate("AddTransaction3")
           }} />
 
         </View>
+
       </View>
     );
   }
@@ -130,4 +172,5 @@ const styles = StyleSheet.create({
     marginBottom: 20
   }
 });
-export default DetailTransaction;
+
+export default AddTransaction2;
